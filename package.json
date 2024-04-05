@@ -2,13 +2,14 @@
   "name": "ts",
   "version": "1.0.0",
   "description": "artie makes a TS dockerfile",
-  "main": "index.js",
+  "main": "public/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "launch": "echo \"hi mom!\" && npm ci && npm start"
   },
-  "author": "",
+  "author": "artie",
   "license": "ISC",
   "devDependencies": {
     "copy-webpack-plugin": "^12.0.2",
@@ -18,5 +19,8 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "rxjs": "^7.8.1"
   }
 }

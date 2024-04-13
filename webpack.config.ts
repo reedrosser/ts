@@ -1,12 +1,16 @@
-const path = require('path');
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import webpack, { WebpackPluginInstance } from "webpack";
+import "webpack-dev-server";
 const devMode = true;
+const plugins:WebpackPluginInstance[] = devMode ? []:[new MiniCssExtractPlugin()];
 
-module.exports = {
-  entry: './src/index.ts',
-  mode: devMode ? 'development' : 'production',
+const config: webpack.Configuration = {
+  entry: "./src/index.ts",
+  mode: devMode ? "development" : "production",
   devServer: {
     static: {
-      directory: path.join(__dirname, 'public'),
+      directory: path.join(__dirname, "public"),
     },
     compress: true,
     port: 9000,
@@ -15,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
       {
@@ -31,12 +35,14 @@ module.exports = {
       },
     ],
   },
-  plugins: [].concat(devMode ? [] : [new MiniCssExtractPlugin("style.css")]),
+  plugins,
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
   },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
 };
+
+export default config;

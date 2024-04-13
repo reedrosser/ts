@@ -13,13 +13,18 @@
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [9000]
+	"forwardPorts": [9000],
 
 	// Uncomment the next line to run commands after the container is created.
 	// "postCreateCommand": "cat /etc/os-release",
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"extensions": [ "esbenp.prettier-vscode", "dbaeumer.vscode-eslint"]
+		}
+}
 
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "devcontainer"
